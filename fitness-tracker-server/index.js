@@ -1,21 +1,24 @@
 const express = require("express");
-const bodyParser = require("body-parser");
-const mongoose = require("mongoose");
-const userRoutes = require("./routes/authRoutes.js");
-
 const app = express();
-const PORT = process.env.PORT || 5000;
+const mongoose = require("mongoose");
+const PORT = 5000;
+const cors = require("cors");
+const User = require("./models/user.js");
 
-app.use(bodyParser.json());
+app.use(express.json());
+app.use(cors());
 
-mongoose.connect("mongodb://localhost:27017/fitness_tracker_db", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useCreateIndex: true,
+mongoose.connect("mongodb://localhost:27017/login");
+
+app.post("/register", (req, res) => {
+  User.create(req, body)
+    .then((user) => res.json(user))
+    .catch((err) => res.json(err));
 });
-
-app.use("/api/users", userRoutes);
 
 app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+  console.log(`servere listen on http://localhost:${PORT}`);
 });
+
+// vEnjyW6ybgVCQOOp
+// aatifwarraich10
