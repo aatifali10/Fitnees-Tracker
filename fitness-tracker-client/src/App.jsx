@@ -1,16 +1,7 @@
-// import Login from "./component/Login";
-// import Registration from "./component/Registration";
+import React from "react";
 
 const App = () => {
-  fetch("http://localhost:8000/api/auth/register")
-    .then((res) => res.json())
-    .then((res) => console.log(res));
-  return (
-    <div>
-      {/* <Registration/> */}
-      {/* <Login/> */}
-    </div>
-  );
+  return <div>App</div>;
 };
 
 export default App;
